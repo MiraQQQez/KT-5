@@ -1,0 +1,100 @@
+/* Основной контейнер сцены */
+.scene {
+    height: 100vh; /* Высота на весь экран */
+    background-color: #ffffff; /* Белый фон */
+    position: relative; /* Для позиционирования дочерних элементов */
+    overflow: hidden; /* Скрываем всё, что выходит за пределы сцены */
+}
+
+/* Контейнер машины */
+.car {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    bottom: 80px; /* Отступ от нижнего края */
+    left: -200px; /* Начальная позиция за пределами экрана */
+    animation: drive 4s forwards; /* Анимация движения, 4 секунды, остановка в конечной точке */
+}
+
+/* Основной корпус машины */
+.body {
+    width: 200px;
+    height: 60px;
+    background-color: #1a1a1a; /* Тёмный цвет корпуса */
+    border-radius: 10px; /* Скругление углов */
+    position: absolute;
+    bottom: 0;
+}
+
+/* Кабина водителя */
+.cabin {
+    width: 80px;
+    height: 50px;
+    background-color: #2c2c2c; /* Цвет кабины */
+    position: absolute;
+    bottom: 60px;
+    left: 50px;
+    border-radius: 10px 10px 0 0; /* Скругление верхних углов */
+}
+
+/* Общие стили для колёс */
+.wheel {
+    width: 40px;
+    height: 40px;
+    background-color: #0f0f0f; /* Цвет колёс */
+    border-radius: 50%; /* Круглая форма */
+    position: absolute;
+    bottom: -20px;
+    animation: rotate 1s linear infinite; /* Бесконечное вращение колёс */
+}
+
+/* Позиция левого колеса */
+.wheel-left {
+    left: 30px;
+}
+
+/* Позиция правого колеса */
+.wheel-right {
+    right: 30px;
+}
+
+/* Дорога */
+.road {
+    width: 100%;
+    height: 60px;
+    background-color: #f0f0f0; /* Светло-серый цвет дороги */
+    position: absolute;
+    bottom: 0;
+}
+
+/* Солнце */
+.sun {
+    width: 80px;
+    height: 80px;
+    background-color: #ffd700; /* Золотистый цвет солнца */
+    border-radius: 50%; /* Круглая форма */
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    opacity: 0.8; /* Прозрачность */
+}
+
+/* Анимация движения машины */
+@keyframes drive {
+    from {
+        left: -200px; /* Начальная позиция слева за экраном */
+    }
+    to {
+        left: calc(100% - 250px); /* Конечная позиция - 50px от правого края */
+    }
+}
+
+/* Анимация вращения колёс */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg); /* Начальный угол поворота */
+    }
+    to {
+        transform: rotate(360deg); /* Полный оборот */
+    }
+}
